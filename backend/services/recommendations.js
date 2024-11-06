@@ -26,6 +26,7 @@ export async function fetchRecommendations(userData) {
     He/she has also learnt the following frameworks: ${userData.frameworks} and has worked on it.
     ${userData.cpOption ? `He/she has been practicing competitive programming as well, in the platform such as ${userData.selectedPlatforms}, having usernames - ${userData.usernames}.` : "He/she has not yet started with competitive programming, so starting with beginner-level problems could be beneficial."}
     ${userData.projectOption ? `He/she has also worked on some projects, such as ${userData.projectLink}.` : "He/she has not yet started with any projects, so starting with small projects could be beneficial."}
+    ${userData.CodeforcesStats ? `On Codeforces, his/her stats are as follows: Total Problems Solved - ${userData.CodeforcesStats.totalProblemsSolved}, Difficulty-Wise Problem Counts - Easy: ${userData.CodeforcesStats.easy}, Medium: ${userData.CodeforcesStats.medium}, Hard: ${userData.CodeforcesStats.hard}, Total Active Days - ${userData.CodeforcesStats.totalActiveDays}, Max Streak - ${userData.CodeforcesStats.maxStreak}, Contest Rating - ${userData.CodeforcesStats.rating}, Level - ${userData.CodeforcesStats.level}, Global Ranking - ${userData.CodeforcesStats.globalRanking}, Top Percentage - ${userData.CodeforcesStats.topPercentage}, Contest Attendance - ${userData.CodeforcesStats.contestAttendance}.` : ""}
     
     Return a structured learning plan using this JSON format. The schema should match the following structure:
 
