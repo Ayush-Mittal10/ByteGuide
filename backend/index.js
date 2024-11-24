@@ -1,19 +1,38 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+import connect from './config/database.js';
+import authenticationRoutes from './routes/authenticationRoutes.js';
 import recommendationRoutes from './routes/recommendationRoutes.js';
+import planRoutes from './routes/planRoutes.js';
 import scraperRoutes from './routes/scraperRoutes.js';
-import studentRoutes from './routes/student.js';
+import orderRoutes from './routes/orderRoutes.js';
+import authMiddleware from './middleware/authMiddleware.js';
 
 dotenv.config();
-
+connect();
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+    optionsSuccessStatus: 200,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
+app.use(cookieParser());
+
+app.use('/authentication', authenticationRoutes);
+app.use('/api', planRoutes);
 app.use('/api/recommendations', recommendationRoutes);
-app.use('/api/profiles', scraperRoutes);
-app.use('/api/students', studentRoutes);
+app.use('/api/profiles', authMiddleware, scraperRoutes);
+app.use('/api', orderRoutes);
 
 const PORT = process.env.PORT || 5000;
 
