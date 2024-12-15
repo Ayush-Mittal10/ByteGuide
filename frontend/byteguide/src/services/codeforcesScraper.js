@@ -1,8 +1,10 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default async function codeforcesScraper(username) {
   try {
-    const proxyUrl = 'http://brd-customer-hl_1dddd9ad-zone-web_unlocker1:11gbr3pyw1xl@brd.superproxy.io:22225';
+    const proxyUrl = process.env.PROXY_URL;
     const response = await axios.get(`${proxyUrl}https://codeforces.com/profile/${username}`);
     const parser = new DOMParser();
     const doc = parser.parseFromString(response.data, 'text/html');
