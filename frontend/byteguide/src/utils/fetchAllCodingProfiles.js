@@ -5,12 +5,12 @@ const fetchAllCodingProfiles = async (usernames) => {
     const userData = JSON.parse(localStorage.getItem('userData')) || {};
 
     if (usernames.Codeforces) {
-      const codeforcesData = await axios.get(`http://localhost:4000/api/profiles/codeforces-profile/${usernames.Codeforces}`);
+      const codeforcesData = await axios.get(`https://byteguide-backend.onrender.com/api/profiles/codeforces-profile/${usernames.Codeforces}`);
       userData.codeforcesStats = codeforcesData.data;
     }
 
     if (usernames.LeetCode) {
-      const leetCodeData = await axios.get(`http://localhost:4000/api/profiles/leetcode-profile/${usernames.leetcode}`);
+      const leetCodeData = await axios.get(`https://byteguide-backend.onrender.com/api/profiles/leetcode-profile/${usernames.leetcode}`);
       userData.leetCodeStats = leetCodeData.data;
     }
 

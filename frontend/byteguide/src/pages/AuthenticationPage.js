@@ -29,7 +29,7 @@ export default function AuthPage({ Login }) {
     data.userData = userData;
 
     const endpoint = isLogin ? 'login' : 'register';
-    const url = `http://localhost:4000/authentication/${endpoint}`;
+    const url = `https://byteguide-backend.onrender.com/authentication/${endpoint}`;
 
     if (!isLogin) {
       if (!data.firstname || !data.lastname || !data.email || !data.password) {

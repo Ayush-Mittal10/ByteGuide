@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:4000/authentication/logout', {
+      await fetch('https://byteguide-backend.onrender.com/authentication/logout', {
         method: 'POST',
         credentials: 'include',
       });

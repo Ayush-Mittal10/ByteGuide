@@ -15,7 +15,7 @@ export default function PremiumSubscriptionPage() {
     const checkAuth = async () => {
 
       try {
-        const response = await fetch('http://localhost:4000/authentication/login-status', {
+        const response = await fetch('https://byteguide-backend.onrender.com/authentication/login-status', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export default function PremiumSubscriptionPage() {
         if (!data.isLoggedIn) {
           navigate(`/login?from=${encodeURIComponent(window.location.pathname)}`);
         } else {
-          const userResponse = await fetch('http://localhost:4000/authentication/get-user-data', {
+          const userResponse = await fetch('https://byteguide-backend.onrender.com/authentication/get-user-data', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export default function PremiumSubscriptionPage() {
 
     const fetchPlans = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/plans', {
+        const response = await fetch('https://byteguide-backend.onrender.com/api/plans', {
           method: 'GET',
           headers:{
             'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ export default function PremiumSubscriptionPage() {
     }, 1000)
 
     try {
-      const response = await fetch('http://localhost:4000/api/create-order', {
+      const response = await fetch('https://byteguide-backend.onrender.com/api/create-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export default function PremiumSubscriptionPage() {
       await initializeRazorpay(options);
       console.log("userID:", userId);
       console.log("planId:", planId)
-      const res = await fetch('http://localhost:4000/api/subscribe', {
+      const res = await fetch('https://byteguide-backend.onrender.com/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

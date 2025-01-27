@@ -69,7 +69,7 @@ const Onboarding = () => {
 
       try {
         localStorage.setItem('userData', JSON.stringify(requestBody));
-        const response = await fetch('http://localhost:4000/authentication/login-status', {
+        const response = await fetch('https://byteguide-backend.onrender.com/authentication/login-status', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const Onboarding = () => {
 
         const updatedUserData = JSON.parse(localStorage.getItem('userData'));
 
-        await fetch('http://localhost:4000/authentication/update-user-data', {
+        await fetch('https://byteguide-backend.onrender.com/authentication/update-user-data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

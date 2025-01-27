@@ -65,7 +65,7 @@ const PersonalizedPlan = () => {
           throw new Error("No user data found in local storage.");
         }
 
-        const response = await fetch('http://localhost:4000/authentication/get-user-data', {
+        const response = await fetch('https://byteguide-backend.onrender.com/authentication/get-user-data', {
           method: 'GET',
           headers:{
             "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const PersonalizedPlan = () => {
           setProTip(parsedResponse.proTip);
           setLoading(false);
           
-          await fetch('http://localhost:4000/authentication/update-user-data', {
+          await fetch('https://byteguide-backend.onrender.com/authentication/update-user-data', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
