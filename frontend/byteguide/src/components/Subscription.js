@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Check, ArrowRight, Star } from 'lucide-react';
 import { initializeRazorpay } from '../utils/razorpay';
-import axios from 'axios';
 
 export default function PremiumSubscriptionPage() {
   const [hoveredPlan, setHoveredPlan] = useState(null);

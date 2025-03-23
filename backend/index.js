@@ -15,7 +15,7 @@ connect();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://byteguide.onrender.com',
+    origin: ['http://localhost:3000', 'https://byteguide.onrender.com'],
     credentials: true,
     optionsSuccessStatus: 200,
     allowedHeaders: ['Content-Type', 'Authorization'],
